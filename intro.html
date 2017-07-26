@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Intro VueJS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
+    <style>
+        .res_rgb {
+            min-height: 180px;
+            border: 1px solid #585858;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col s4 offset-s3">
+
+                <p>Controles</p>
+                <label for="red"></label>
+                <input type="number" id="red" min="0" max="255" placeholder="Red" v-model="red"><br>
+                <input type="range" min="0" max="255" v-model="red">
+
+                <label for="green"></label>
+                <input type="number" id="green" min="0" max="255" placeholder="Green" v-model="green"><br>
+                <input type="range" min="0" max="255" v-model="green">
+
+
+                <label for="blue"></label>
+                <input type="number" id="blue" min="0" max="255" placeholder="Blue" v-model="blue">
+                <input type="range" min="0" max="255" v-model="blue">
+
+            </div>
+
+            <div class="col s4">
+                <p>Resultado</p>
+                RGB = ({{ red }},{{ green }},{{ blue }})
+                <div class="res_rgb" v-bind:style="{background: 'rgb('+parseInt(red)+', '+parseInt(green)+', '+parseInt(blue)+')'  }">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                red: 0,
+                green: 100,
+                blue: 100
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>
